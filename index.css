@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #080911;
+  color: #f1f5f9;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Custom scrollbar for mobile drawers and chat streams */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.font-display {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Glassmorphism helpers for dark streaming aesthetic */
+.glass-panel {
+  background: rgba(18, 22, 38, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-pill {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.neon-glow-pink {
+  box-shadow: 0 0 25px -4px rgba(236, 72, 153, 0.45);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 25px -4px rgba(168, 85, 247, 0.45);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-80px) scale(1.1) rotate(12deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-160px) scale(1.3) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart {
+  animation: floatUp 2.2s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes giftBurst {
+  0% {
+    transform: scale(0.4) translateY(20px);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1.15) translateY(-5px);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1.05) translateY(-5px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.animate-gift-burst {
+  animation: giftBurst 3.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Agora RTC Video Player styles */
+#agora-remote-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #05060b;
+}
+
+#agora-remote-player .agora_video_player,
+#agora-remote-player video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  inset: 0 !important;
+}
+
+#agora-local-player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0b0d17;
+}
+
+#agora-local-player .agora_video_player,
+#agora-local-player video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  inset: 0 !important;
+  transform: scaleX(-1); /* mirror selfie view */
+}
+
