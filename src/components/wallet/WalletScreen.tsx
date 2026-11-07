@@ -41,4 +41,4 @@ export function WalletScreen() {
       </div>
     </div>
   );
-}.            
+}           
